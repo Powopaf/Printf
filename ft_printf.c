@@ -6,13 +6,13 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:02:26 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/13 15:53:33 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:19:55 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	init_print(void (*f[])(void*))
+void	init_print(int (*f[])(void*))
 {
 	f[0] = print_char;
 	f[1] = print_string;
@@ -25,7 +25,7 @@ void	init_print(void (*f[])(void*))
 	f[8] = print_percent;
 }	
 
-void	what_func(char c, void *to_print, void (*f[])(void*))
+int	what_func(char c, void *to_print, int (*f[])(void*))
 {
 	const char	*set;
 	size_t		i;
@@ -34,22 +34,23 @@ void	what_func(char c, void *to_print, void (*f[])(void*))
 	i = 0;
 	while (set[i] != '\0' && set[i] != c)
 		i++;
-	f[i](to_print);
+	return f[i](to_print);
 }
 
 int	ft_printf(const char *s, ...)
 {
 	const char	*str;
 	va_list		param;
-	void		*curr;
+	size_t		len;
 	size_t		i;
-	void (*print_func[9])();
+	int (*print_func[9])();
 
 
 	init_print(print_func);
 	str = s;
 	va_start(param, s);
 	i = 0;
+	len = 0;
 	while (1)
 	{
 		while (str[i] != '\0' && str[i] != '%')
@@ -59,11 +60,10 @@ int	ft_printf(const char *s, ...)
 		}
 		if (str[i] == '\0')
 			break ;
-		curr = va_arg(param, void*);
 		i++;
-		what_func(str[i], curr, print_func);
+		len = len + what_func(str[i], va_arg(param, void*), print_func);
 		i++;
 	}
 	va_end(param);
-	return (0);
+	return (i);
 }

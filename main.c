@@ -6,7 +6,7 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 10:52:37 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/13 17:34:33 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:13:06 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 int main()
 {
-	printf("hello = ");
-	ft_printf("hello\n");
+	ft_printf("hello = ");
+	printf("hello\n");
+	ft_printf("%c = ", 'a');
+	printf("%c\n", 'a');
 }
