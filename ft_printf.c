@@ -6,16 +6,9 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:02:26 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/13 14:26:52 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/13 15:53:33 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
- * TODO: write until end of string OR when we find a %
- * when % is find  -> check next char end see if it's in the following list
- * cspdiuxX%
- * utiliser va_* pour lire les ...
- */
 
 #include "ft_printf.h"
 
@@ -24,7 +17,7 @@ void	init_print(void (*f[])(void*))
 	f[0] = print_char;
 	f[1] = print_string;
 	f[2] = print_p;
-	f[3] = print_dec;
+	f[3] = print_int;
 	f[4] = print_int;
 	f[5] = print_uint;
 	f[6] = print_lhex;
@@ -50,7 +43,7 @@ int	ft_printf(const char *s, ...)
 	va_list		param;
 	void		*curr;
 	size_t		i;
-	void (*print_func[8])();
+	void (*print_func[9])();
 
 
 	init_print(print_func);
@@ -71,5 +64,6 @@ int	ft_printf(const char *s, ...)
 		what_func(str[i], curr, print_func);
 		i++;
 	}
+	va_end(param);
 	return (0);
 }

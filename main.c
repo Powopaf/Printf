@@ -6,15 +6,15 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 10:52:37 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/13 12:42:32 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/13 17:34:33 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-//#include "ft_printf.h"
+#include "ft_printf.h"
 
 int main()
 {
-	printf("%");
-//	ft_printf("%c");
+	printf("hello = ");
+	ft_printf("hello\n");
 }

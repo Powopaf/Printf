@@ -1,36 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_letters.c                                    :+:      :+:    :+:   */
+/*   print_num.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 13:24:32 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/13 17:32:38 by pifourni         ###   ########.fr       */
+/*   Created: 2025/11/13 14:49:06 by pifourni          #+#    #+#             */
+/*   Updated: 2025/11/13 15:27:43 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_char(void *c)
+void	print_int(void *i)
 {
-	write(1, (char *)c, 1);
-}
+	long	num;
+	char	c;
 
-void	print_string(void *s)
-{
-	size_t	i;
-	char	*str;
-
-	i = 0;
-	str = (char*)s;
-	while (str[i] != '\0')
+	num = (long)(*((int*)i));
+	if (num < 0)
 	{
-		write(1, str + i, 1);
+		num = -num;
+		write(1, "-", 1);
 	}
+	while (num > 9)
+	{
+		c = num % 10 + '0';
+		write(1, &c, 1);
+		num = num / 10;
+	}
+	c = num + '0';
+	write(1, &c, 1);
 }
 
-void	print_percent(void *p)
+void	print_uint(void *u)
 {
-	write(1, (char*)p, 1);
+	unsigned int	num;
+	char			c;
+
+	num = *(unsigned int*)u;
+	while (num > 9)
+	{
+		c = num % 10 + '0';
+		write(1, &c, 1);
+		num = num / 10;
+	}
+	c = num + '0';
+	write(1, &c, 1);
 }
