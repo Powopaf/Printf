@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pifourni <pifourni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 22:32:07 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/13 11:07:41 by pifourni         ###   ########.fr       */
+/*   Created: 2025/11/13 10:52:37 by pifourni          #+#    #+#             */
+/*   Updated: 2025/11/13 11:11:21 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <stdio.h>
+#include "ft_printf.h"
 
-int	ft_printf(const char *, ...);
-
-#endif
+int main()
+{
+	printf("%c");
+	ft_printf("%c");
+}
