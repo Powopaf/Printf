@@ -6,7 +6,7 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:02:26 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/13 18:19:55 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:22:24 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,5 @@ int	ft_printf(const char *s, ...)
 		i++;
 	}
 	va_end(param);
-	return (i);
+	return (i + len);
 }
