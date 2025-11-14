@@ -6,7 +6,7 @@
 #    By: pifourni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 12:57:34 by pifourni          #+#    #+#              #
-#    Updated: 2025/11/14 23:33:01 by pifourni         ###   ########.fr        #
+#    Updated: 2025/11/15 00:02:09 by pifourni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,11 @@ NAME = libftprintf.out
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) -o $(NAME) $+ $(LIB)
+$(LIB):
+	$(MAKE) -C lib
+
+$(NAME): $(OBJ) $(LIB)
+	$(CC) -o $(NAME) $(LIB) $+ $(LIB)
 #	ar -rsc $(NAME) $(OBJ)
 
 %.o: %.c
@@ -33,8 +36,11 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -f $(OBJ)
+	$(MAKE) -C lib clean
 
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) -C lib fclean
 
 re: fclean all
+	$(MAKE) -C lib re
