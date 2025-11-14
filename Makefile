@@ -6,7 +6,7 @@
 #    By: pifourni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 12:57:34 by pifourni          #+#    #+#              #
-#    Updated: 2025/11/13 18:14:00 by pifourni         ###   ########.fr        #
+#    Updated: 2025/11/14 10:19:24 by pifourni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,7 @@ CC = cc
 LIB = 
 CFLAGS = -Wall -Wextra -Werror -I. -Includes -g
 SRC = ./ft_printf.c \
-	  ./print_hex.c \
-	  ./print_letters.c \
-	  ./print_num.c \
+	  ./print_chr.c \
 	  ./main.c
 
 OBJ = $(SRC:.c=.o)

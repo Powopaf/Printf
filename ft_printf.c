@@ -6,35 +6,31 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:02:26 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/13 18:22:24 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/14 12:03:57 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	init_print(int (*f[])(void*))
+int	what_func(char c, va_list to_print)
 {
-	f[0] = print_char;
-	f[1] = print_string;
-	f[2] = print_p;
-	f[3] = print_int;
-	f[4] = print_int;
-	f[5] = print_uint;
-	f[6] = print_lhex;
-	f[7] = print_uhex;
-	f[8] = print_percent;
-}	
-
-int	what_func(char c, void *to_print, int (*f[])(void*))
-{
-	const char	*set;
-	size_t		i;
-
-	set = "cspdiuxX%";
-	i = 0;
-	while (set[i] != '\0' && set[i] != c)
-		i++;
-	return f[i](to_print);
+	if (c == 'c')
+		return (print_char((char)(va_arg(to_print, int))));
+	if (c == 's')
+		return (print_str((char*)(va_arg(to_print, char *))));
+	if (c == '%')
+		return (print_percent());
+	if (c == 'p')
+		return (print_p((uintptr_t)(va_arg(to_print, uintptr_t))));
+	if (c == 'd' || c == 'i')
+		return (print_int((int)(va_arg(to_print, int))));
+	if (c == 'u')
+		return (print_uint((unsigned int)(va_arg(to_print, unsigned int))));
+	if (c == 'x')
+		return (print_lhex((unsigned int)(va_arg(to_print, unsigned int))));
+	if (c == 'X')
+		return (print_uhex((unsigned int)(va_arg(to_print, unsigned int))));
+	return (0);
 }
 
 int	ft_printf(const char *s, ...)
@@ -43,10 +39,7 @@ int	ft_printf(const char *s, ...)
 	va_list		param;
 	size_t		len;
 	size_t		i;
-	int (*print_func[9])();
 
-
-	init_print(print_func);
 	str = s;
 	va_start(param, s);
 	i = 0;
@@ -61,7 +54,7 @@ int	ft_printf(const char *s, ...)
 		if (str[i] == '\0')
 			break ;
 		i++;
-		len = len + what_func(str[i], va_arg(param, void*), print_func);
+		len = len + what_func(str[i], param);
 		i++;
 	}
 	va_end(param);
