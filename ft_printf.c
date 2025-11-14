@@ -6,7 +6,7 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:02:26 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/14 23:05:06 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/15 00:05:34 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int	what_func(char c, va_list to_print)
 		return (print_int((int)(va_arg(to_print, int))));
 	if (c == 'u')
 		return (print_uint((unsigned int)(va_arg(to_print, unsigned int))));
-	/*if (c == 'x')
+	if (c == 'x')
 		return (print_lhex((unsigned int)(va_arg(to_print, unsigned int))));
 	if (c == 'X')
 		return (print_uhex((unsigned int)(va_arg(to_print, unsigned int))));
-	*/return (0);
+	return (0);
 }
 
 int	ft_printf(const char *s, ...)
