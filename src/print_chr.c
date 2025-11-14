@@ -6,11 +6,11 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 10:17:00 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/14 11:16:50 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/14 22:24:31 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	print_char(char c)
 {

@@ -6,7 +6,7 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 10:52:37 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/14 18:31:53 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/14 22:49:53 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ int main()
 		printf("%d = %d \n", a, aa + 2);
 		printf("%d = %d\n\n", b, bb + 2);
 	}
-/*	{
+	{
 		int a = ft_printf("%u = ", 0xffffffff);
 		int aa = printf("%u\n", 0xffffffff);
 		printf("%d = %d\n\n", a, aa + 2);
 	}
-	{
+/*	{
 		int a = ft_printf("%x = ", 31);
 		int aa = printf("%x\n", 31);
 		printf("%d = %d\n\n", a, aa + 2);
