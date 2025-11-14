@@ -6,7 +6,7 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:02:26 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/14 17:21:41 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/14 18:31:17 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	what_func(char c, va_list to_print)
 	if (c == '%')
 		return (print_percent());
 	if (c == 'p')
-		return (print_p((uintptr_t)(va_arg(to_print, uintptr_t))));
+		return (print_p((uintptr_t)(va_arg(to_print, void *))));
 	if (c == 'd' || c == 'i')
 		return (print_int((int)(va_arg(to_print, int))));
 	/*if (c == 'u')
