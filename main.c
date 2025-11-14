@@ -6,7 +6,7 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 10:52:37 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/14 17:05:13 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/14 17:22:58 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ int main()
 		printf("%d = %d \n", aa, a + 2);
 		printf("%d = %d\n\n", b, bb + 2);
 	}
-	{
-		int a = ft_printf("%u = ", 4294967295);
+/*	{
+		int a = ft_printf("%u = ", 0xffffffff);
 		int aa = printf("%u\n", 0xffffffff);
 		printf("%d = %d\n\n", a, aa + 2);
 	}
@@ -70,7 +70,7 @@ int main()
 		int a = ft_printf("%X = " , -46872);
 		int aa = printf("%X\n", -46872);
 		printf("%d = %d\n", a, aa + 2);
-	}
+	}*/
 	{
 		int a = ft_printf(NULL);
 		printf("\n");
