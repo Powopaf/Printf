@@ -6,7 +6,7 @@
 #    By: pifourni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 12:57:34 by pifourni          #+#    #+#              #
-#    Updated: 2025/11/15 00:02:09 by pifourni         ###   ########.fr        #
+#    Updated: 2025/11/15 01:10:26 by pifourni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ SRC = ./ft_printf.c \
 	  ./src/print_chr.c \
 	  ./src/print_num.c \
 	  ./src/print_hex.c \
-	  ./main.c
+	  ./mainprintf.c
 
 OBJ = $(SRC:.c=.o)
-NAME = libftprintf.out
+NAME = libftprintf.a
 
 all: $(NAME)
 
@@ -28,8 +28,8 @@ $(LIB):
 	$(MAKE) -C lib
 
 $(NAME): $(OBJ) $(LIB)
-	$(CC) -o $(NAME) $(LIB) $+ $(LIB)
-#	ar -rsc $(NAME) $(OBJ)
+	cp $(LIB) $(NAME)
+	ar -rsc $(NAME) $(OBJ)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
@@ -43,4 +43,3 @@ fclean: clean
 	$(MAKE) -C lib fclean
 
 re: fclean all
-	$(MAKE) -C lib re
