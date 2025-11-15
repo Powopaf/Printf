@@ -6,7 +6,7 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 10:17:00 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/15 00:57:05 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/15 01:31:48 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	print_str(char *s)
 	return (i);
 }
 
-int print_percent()
+int	print_percent(void)
 {
 	return (print_char('%'));
 }

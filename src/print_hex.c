@@ -6,7 +6,7 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 14:49:05 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/15 00:25:27 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/15 01:36:21 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	print_p(uintptr_t p)
 	char	*base;
 	char	hex[16];
 	int		count;
-
 
 	if (p == 0)
 	{
@@ -34,17 +33,17 @@ int	print_p(uintptr_t p)
 		p = p >> 4;
 		len--;
 	}
-	while(++len < 16)
-		count = count + write(1, hex + len , 1);
+	while (++len < 16)
+		count = count + write(1, hex + len, 1);
 	return (count);
 }
 
-static int print_hex(unsigned int i, char *base)
+static int	print_hex(unsigned int i, char *base)
 {
-	int 	j;
+	int		j;
 	char	hex[10];
 	int		len;
-	
+
 	if (i == 0)
 		return (write(1, "0", 1));
 	j = 9;
@@ -60,12 +59,12 @@ static int print_hex(unsigned int i, char *base)
 	return (len);
 }
 
-int print_lhex(unsigned int l)
+int	print_lhex(unsigned int l)
 {
 	return (print_hex(l, "0123456789abcdef"));
 }
 
-int print_uhex(unsigned int u)
+int	print_uhex(unsigned int u)
 {
 	return (print_hex(u, "0123456789ABCDEF"));
 }

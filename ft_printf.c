@@ -6,7 +6,7 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:02:26 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/15 00:05:34 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/15 01:25:21 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	what_func(char c, va_list to_print)
 	if (c == 'c')
 		return (print_char((char)(va_arg(to_print, int))));
 	if (c == 's')
-		return (print_str((char*)(va_arg(to_print, char *))));
+		return (print_str((char *)(va_arg(to_print, char *))));
 	if (c == '%')
 		return (print_percent());
 	if (c == 'p')
@@ -48,17 +48,15 @@ int	ft_printf(const char *s, ...)
 	len = 0;
 	while (1)
 	{
-		while (str[i] != '\0' && str[i] != '%')
+		while (str[++i] != '\0' && str[i] != '%')
 		{
 			write(1, s + i, 1);
-			i++;
 			len++;
 		}
 		if (str[i] == '\0')
 			break ;
 		i++;
-		len = len + what_func(str[i], param);
-		i++;
+		len = len + what_func(str[++i], param);
 	}
 	va_end(param);
 	return (len);
