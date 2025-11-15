@@ -6,7 +6,7 @@
 #    By: pifourni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 12:57:34 by pifourni          #+#    #+#              #
-#    Updated: 2025/11/15 01:10:26 by pifourni         ###   ########.fr        #
+#    Updated: 2025/11/15 01:15:09 by pifourni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ SRC = ./ft_printf.c \
 	  ./src/print_chr.c \
 	  ./src/print_num.c \
 	  ./src/print_hex.c \
-	  ./mainprintf.c
 
 OBJ = $(SRC:.c=.o)
 NAME = libftprintf.a
