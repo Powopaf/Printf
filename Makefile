@@ -6,18 +6,17 @@
 #    By: pifourni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 12:57:34 by pifourni          #+#    #+#              #
-#    Updated: 2025/11/17 10:33:40 by pifourni         ###   ########.fr        #
+#    Updated: 2025/11/17 11:05:25 by pifourni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-LIB = lib/libft.a
-CFLAGS = -Wall -Wextra -Werror -I. -Includes -g
+LIB = libft/libft.a
+CFLAGS = -Wall -Wextra -Werror -I. -Iincludes
 SRC = ./ft_printf.c \
 	  ./src/print_chr.c \
 	  ./src/print_num.c \
 	  ./src/print_hex.c \
-#	  ./mainprintf.c
 
 OBJ = $(SRC:.c=.o)
 NAME = libftprintf.a
@@ -25,7 +24,7 @@ NAME = libftprintf.a
 all: $(NAME)
 
 $(LIB):
-	$(MAKE) -C lib
+	$(MAKE) -C libft
 
 $(NAME): $(OBJ) $(LIB)
 	cp $(LIB) $(NAME)
@@ -36,10 +35,10 @@ $(NAME): $(OBJ) $(LIB)
 
 clean:
 	rm -f $(OBJ)
-	$(MAKE) -C lib clean
+	$(MAKE) -C libft clean
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C lib fclean
+	$(MAKE) -C libft fclean
 
 re: fclean all

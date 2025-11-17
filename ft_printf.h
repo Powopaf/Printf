@@ -6,7 +6,7 @@
 /*   By: pifourni <pifourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 22:32:07 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/15 01:26:06 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/17 11:05:44 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdint.h>
 # include <stdarg.h>
-# include "./lib/libft.h"
+# include "./libft/libft.h"
 
 int	ft_printf(const char *format, ...)
 	__attribute__((format(printf, 1, 2)));
