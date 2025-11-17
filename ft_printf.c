@@ -6,7 +6,7 @@
 /*   By: pifourni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:02:26 by pifourni          #+#    #+#             */
-/*   Updated: 2025/11/15 01:25:21 by pifourni         ###   ########.fr       */
+/*   Updated: 2025/11/17 10:32:07 by pifourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,16 @@ int	ft_printf(const char *s, ...)
 	len = 0;
 	while (1)
 	{
-		while (str[++i] != '\0' && str[i] != '%')
+		while (str[i] != '\0' && str[i] != '%')
 		{
 			write(1, s + i, 1);
 			len++;
+			i++;
 		}
 		if (str[i] == '\0')
 			break ;
 		i++;
-		len = len + what_func(str[++i], param);
+		len = len + what_func(str[i++], param);
 	}
 	va_end(param);
 	return (len);
